@@ -1,0 +1,83 @@
+{
+	"name": "caniuse-query",
+	"displayName": "Can I Use Query",
+	"description": "A Simple Extension for VSCode to search easily using http://caniuse.com site. Can I use provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers.",
+	"keywords": [
+		"can i use",
+		"web",
+		"browser",
+		"compatibility",
+		"support",
+		"html",
+		"css",
+		"svg",
+		"html5",
+		"css3",
+		"opera",
+		"chrome",
+		"firefox",
+		"safari",
+		"internet explorer"
+	],
+	"version": "0.0.1",
+	"publisher": "WilsonWong",
+	"engines": {
+		"vscode": "^1.31.0"
+	},
+	"author": {
+		"name": "Wilson Wong",
+		"url": "http://bbs.91wc.net/caniuse-query"
+	},
+	"icon": "resources/icon.png",
+	"homepage": "http://bbs.91wc.net/caniuse-query",
+	"repository": {
+		"type": "git",
+		"url": "https://www.github.com/wish5115/caniuse-query"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.caniuseQuery"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "extension.caniuseQuery",
+					"group": "navigation"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "extension.caniuseQuery",
+				"title": "Can I use this"
+			}
+		],
+		"configuration": {
+			"title": "Can I Use Query Config",
+			"type": "object",
+			"properties": {
+				"caniuseQuery.QueryTemplate": {
+					"type": "string",
+					"default": "https://www.caniuse.com/?search=%SELECTION%",
+					"description": "Can I Use Query"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
+}
